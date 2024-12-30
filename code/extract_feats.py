@@ -30,7 +30,7 @@ def extract_feats(file):
 
 
 def extract_BERT(text):
-    device = "cpu"
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
     bert = BertModel.from_pretrained("bert-base-uncased").to(device)
 
